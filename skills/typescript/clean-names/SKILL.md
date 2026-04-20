@@ -11,19 +11,19 @@ Names should reveal intent. If a name requires a comment, it doesn't reveal its 
 
 ```ts
 // Bad - what is d?
-const d = 86400
+const d = 86400;
 
 // Good - obvious meaning
-const SECONDS_PER_DAY = 86400
+const SECONDS_PER_DAY = 86400;
 
 // Bad - what does this function do?
 function proc(values: number[]) {
-  return values.filter((value) => value > 0)
+  return values.filter((value) => value > 0);
 }
 
 // Good - intent is clear
 function filterPositiveNumbers(numbers: number[]) {
-  return numbers.filter((number) => number > 0)
+  return numbers.filter((number) => number > 0);
 }
 ```
 
@@ -83,13 +83,13 @@ Short names are fine for tiny scopes. Longer scopes need longer, more descriptiv
 
 ```ts
 // Good - short name for tiny scope
-const total = numbers.reduce((sum, n) => sum + n, 0)
+const total = numbers.reduce((sum, n) => sum + n, 0);
 
 // Good - longer name for module-level constant
-const MAX_RETRY_ATTEMPTS_BEFORE_FAILURE = 5
+const MAX_RETRY_ATTEMPTS_BEFORE_FAILURE = 5;
 
 // Bad - short name at module level
-const MAX = 5
+const MAX = 5;
 ```
 
 ## N6: Avoid Encodings
@@ -98,23 +98,23 @@ Don't encode type or scope information into names. Modern editors make this unne
 
 ```ts
 // Bad - Hungarian notation
-const strName = "Alice"
-const arrUsers: string[] = []
-const nCount = 0
+const strName = "Alice";
+const arrUsers: string[] = [];
+const nCount = 0;
 
 // Good - clean names
-const name = "Alice"
-const users: string[] = []
-const count = 0
+const name = "Alice";
+const users: string[] = [];
+const count = 0;
 
 // Bad - interface prefix
 interface IUserRepository {
-  findById(id: string): Promise<unknown>
+  findById(id: string): Promise<unknown>;
 }
 
 // Good - just name it
 interface UserRepository {
-  findById(id: string): Promise<unknown>
+  findById(id: string): Promise<unknown>;
 }
 ```
 
@@ -123,22 +123,22 @@ interface UserRepository {
 If a function does something beyond what its name suggests, the name is misleading.
 
 ```ts
-const configStore = new Map<string, string>()
+const configStore = new Map<string, string>();
 
 // Bad - name doesn't mention file creation
 function getConfig(configPath: string) {
   if (!configStore.has(configPath)) {
-    configStore.set(configPath, "{}") // Hidden side effect!
+    configStore.set(configPath, "{}"); // Hidden side effect!
   }
-  return JSON.parse(configStore.get(configPath) ?? "{}")
+  return JSON.parse(configStore.get(configPath) ?? "{}");
 }
 
 // Good - name reveals behavior
 function getOrCreateConfig(configPath: string) {
   if (!configStore.has(configPath)) {
-    configStore.set(configPath, "{}")
+    configStore.set(configPath, "{}");
   }
-  return JSON.parse(configStore.get(configPath) ?? "{}")
+  return JSON.parse(configStore.get(configPath) ?? "{}");
 }
 ```
 

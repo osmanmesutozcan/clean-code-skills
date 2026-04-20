@@ -12,21 +12,21 @@ Test everything that could possibly break. Use coverage tools as a guide, not a 
 ```ts
 // Bad - only tests happy path
 test("divide", () => {
-  expect(divide(10, 2)).toBe(5)
-})
+  expect(divide(10, 2)).toBe(5);
+});
 
 // Good - tests edge cases too
 test("divide normal", () => {
-  expect(divide(10, 2)).toBe(5)
-})
+  expect(divide(10, 2)).toBe(5);
+});
 
 test("divide by zero", () => {
-  expect(() => divide(10, 0)).toThrow(RangeError)
-})
+  expect(() => divide(10, 0)).toThrow(RangeError);
+});
 
 test("divide negative", () => {
-  expect(divide(-10, 2)).toBe(-5)
-})
+  expect(divide(-10, 2)).toBe(-5);
+});
 ```
 
 ## T2: Use a Coverage Tool
@@ -47,9 +47,9 @@ Trivial tests document behavior and catch regressions. They're worth more than t
 ```ts
 // Worth having - documents expected behavior
 test("user default role", () => {
-  const user = new User("Alice")
-  expect(user.role).toBe("member")
-})
+  const user = new User("Alice");
+  expect(user.role).toBe("member");
+});
 ```
 
 ## T4: An Ignored Test Is a Question About an Ambiguity
@@ -60,11 +60,11 @@ Don't use `test.skip` to hide problems. Either fix the test or delete it.
 // Bad - hiding a problem
 test.skip("async operation", () => {
   // flaky, fix later
-})
+});
 
 // Good - either fix it or document why it's skipped
 test.skip("cache invalidation - requires Redis (see CONTRIBUTING.md)", () => {
-})
+});
 ```
 
 ## T5: Test Boundary Conditions
@@ -73,23 +73,23 @@ Bugs congregate at boundaries. Test them explicitly.
 
 ```ts
 test("pagination boundaries", () => {
-  const items = Array.from({ length: 100 }, (_, i) => i)
+  const items = Array.from({ length: 100 }, (_, i) => i);
 
   // First page
-  expect(paginate(items, 1, 10)).toEqual(items.slice(0, 10))
+  expect(paginate(items, 1, 10)).toEqual(items.slice(0, 10));
 
   // Last page
-  expect(paginate(items, 10, 10)).toEqual(items.slice(90, 100))
+  expect(paginate(items, 10, 10)).toEqual(items.slice(90, 100));
 
   // Beyond last page
-  expect(paginate(items, 11, 10)).toEqual([])
+  expect(paginate(items, 11, 10)).toEqual([]);
 
   // Page zero (invalid)
-  expect(() => paginate(items, 0, 10)).toThrow(RangeError)
+  expect(() => paginate(items, 0, 10)).toThrow(RangeError);
 
   // Empty list
-  expect(paginate([], 1, 10)).toEqual([])
-})
+  expect(paginate([], 1, 10)).toEqual([]);
+});
 ```
 
 ## T6: Exhaustively Test Near Bugs
@@ -100,12 +100,12 @@ When you find a bug, write tests for all similar cases. Bugs cluster.
 // Found bug: off-by-one in date calculation
 // Now test ALL date boundaries
 test("month boundaries", () => {
-  expect(lastDayOfMonth(2024, 1)).toBe(31) // January
-  expect(lastDayOfMonth(2024, 2)).toBe(29) // Leap year February
-  expect(lastDayOfMonth(2023, 2)).toBe(28) // Non-leap February
-  expect(lastDayOfMonth(2024, 4)).toBe(30) // 30-day month
-  expect(lastDayOfMonth(2024, 12)).toBe(31) // December
-})
+  expect(lastDayOfMonth(2024, 1)).toBe(31); // January
+  expect(lastDayOfMonth(2024, 2)).toBe(29); // Leap year February
+  expect(lastDayOfMonth(2023, 2)).toBe(28); // Non-leap February
+  expect(lastDayOfMonth(2024, 4)).toBe(30); // 30-day month
+  expect(lastDayOfMonth(2024, 12)).toBe(31); // December
+});
 ```
 
 ## T7: Patterns of Failure Are Revealing
@@ -133,17 +133,17 @@ Slow tests don't get run. Keep unit tests under 100ms each.
 ```ts
 // Bad - hits real database
 test("user creation", async () => {
-  const db = await connectToDatabase() // Slow!
-  const user = await db.createUser("Alice")
-  expect(user.name).toBe("Alice")
-})
+  const db = await connectToDatabase(); // Slow!
+  const user = await db.createUser("Alice");
+  expect(user.name).toBe("Alice");
+});
 
 // Good - uses mock or in-memory
 test("user creation", async () => {
-  const db = new InMemoryDatabase()
-  const user = await db.createUser("Alice")
-  expect(user.name).toBe("Alice")
-})
+  const db = new InMemoryDatabase();
+  const user = await db.createUser("Alice");
+  expect(user.name).toBe("Alice");
+});
 ```
 
 ## Test Organization
@@ -161,35 +161,35 @@ test("user creation", async () => {
 ```ts
 // Bad - testing multiple things
 test("user", () => {
-  const user = new User("Alice", "alice@example.com")
-  expect(user.name).toBe("Alice")
-  expect(user.email).toBe("alice@example.com")
-  expect(user.isValid()).toBe(true)
-  user.activate()
-  expect(user.isActive).toBe(true)
-})
+  const user = new User("Alice", "alice@example.com");
+  expect(user.name).toBe("Alice");
+  expect(user.email).toBe("alice@example.com");
+  expect(user.isValid()).toBe(true);
+  user.activate();
+  expect(user.isActive).toBe(true);
+});
 
 // Good - one concept each
 test("user stores name", () => {
-  const user = new User("Alice", "alice@example.com")
-  expect(user.name).toBe("Alice")
-})
+  const user = new User("Alice", "alice@example.com");
+  expect(user.name).toBe("Alice");
+});
 
 test("user stores email", () => {
-  const user = new User("Alice", "alice@example.com")
-  expect(user.email).toBe("alice@example.com")
-})
+  const user = new User("Alice", "alice@example.com");
+  expect(user.email).toBe("alice@example.com");
+});
 
 test("new user is valid", () => {
-  const user = new User("Alice", "alice@example.com")
-  expect(user.isValid()).toBe(true)
-})
+  const user = new User("Alice", "alice@example.com");
+  expect(user.isValid()).toBe(true);
+});
 
 test("user can be activated", () => {
-  const user = new User("Alice", "alice@example.com")
-  user.activate()
-  expect(user.isActive).toBe(true)
-})
+  const user = new User("Alice", "alice@example.com");
+  user.activate();
+  expect(user.isActive).toBe(true);
+});
 ```
 
 ## Quick Reference
