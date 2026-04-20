@@ -42,6 +42,9 @@ Use the master skill for comprehensive coverage, or individual skills for target
 
 Pick one track and copy only that track's skills:
 
+> [!WARNING]
+> Install only one language track per skills directory. Python and TypeScript tracks reuse the same skill names (`boy-scout`, `clean-functions`, etc.). Installing both together can make the agent load conflicting instructions and behave inconsistently.
+
 ```bash
 # Python track
 cp -r skills/python/* <YOUR_SKILLS_DIR>/
@@ -61,6 +64,8 @@ You don't have to make code perfect—just **a little bit better** with every to
 ---
 
 ## Installation
+
+Install only one language track per destination directory (`.agent/skills`, `.claude/skills`, `~/.claude/skills`, etc.).
 
 ### Google Antigravity
 
@@ -361,20 +366,16 @@ skills/
     └── SKILL.md
 ```
 
-### Adding Enforcement Scripts
+### Adding Enforcement Scripts (Optional)
 
-For stricter enforcement, add a `scripts/` folder with linters the agent can run:
+This repository does not ship a `scripts/` folder or lint scripts by default.
+If you want stricter enforcement, create your own scripts inside the skill folder.
 
 ```
-skills/python/python-clean-code/
+skills/python-clean-code/
 ├── SKILL.md
 └── scripts/
     └── lint.py
-
-skills/typescript/typescript-clean-code/
-├── SKILL.md
-└── scripts/
-    └── lint.ts
 ```
 
 ---
