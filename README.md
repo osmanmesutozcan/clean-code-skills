@@ -92,12 +92,21 @@ cp -r skills/python/* ~/.gemini/antigravity/skills/
 cp -r skills/typescript/* ~/.gemini/antigravity/skills/
 ```
 
-**Quick install** (global, one command):
+**Quick install** (global, one command) — pick one track:
 
 ```bash
+# Python track
 git clone https://github.com/ertugrul-dmr/clean-code-skills.git /tmp/clean-code-skills && \
 mkdir -p ~/.gemini/antigravity/skills && \
 cp -r /tmp/clean-code-skills/skills/python/* ~/.gemini/antigravity/skills/ && \
+rm -rf /tmp/clean-code-skills
+```
+
+```bash
+# TypeScript track
+git clone https://github.com/ertugrul-dmr/clean-code-skills.git /tmp/clean-code-skills && \
+mkdir -p ~/.gemini/antigravity/skills && \
+cp -r /tmp/clean-code-skills/skills/typescript/* ~/.gemini/antigravity/skills/ && \
 rm -rf /tmp/clean-code-skills
 ```
 
@@ -126,12 +135,21 @@ cp -r skills/python/* ~/.claude/skills/
 cp -r skills/typescript/* ~/.claude/skills/
 ```
 
-**Quick install** (global, one command):
+**Quick install** (global, one command) — pick one track:
 
 ```bash
+# Python track
 git clone https://github.com/ertugrul-dmr/clean-code-skills.git /tmp/clean-code-skills && \
 mkdir -p ~/.claude/skills && \
 cp -r /tmp/clean-code-skills/skills/python/* ~/.claude/skills/ && \
+rm -rf /tmp/clean-code-skills
+```
+
+```bash
+# TypeScript track
+git clone https://github.com/ertugrul-dmr/clean-code-skills.git /tmp/clean-code-skills && \
+mkdir -p ~/.claude/skills && \
+cp -r /tmp/clean-code-skills/skills/typescript/* ~/.claude/skills/ && \
 rm -rf /tmp/clean-code-skills
 ```
 
