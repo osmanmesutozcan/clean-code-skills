@@ -1,6 +1,7 @@
 ---
 name: boy-scout
 description: Use when fixing, editing, changing, debugging, or working with any TypeScript code. Applies the Boy Scout Rule—always leave code cleaner than you found it. Orchestrates other clean code skills as needed.
+paths: '**/*.ts, **/*.tsx'
 ---
 
 # The Boy Scout Rule

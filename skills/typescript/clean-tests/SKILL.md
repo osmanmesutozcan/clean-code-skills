@@ -1,6 +1,7 @@
 ---
 name: clean-tests
 description: Use when writing, fixing, editing, or refactoring TypeScript tests. Enforces Clean Code principles—fast tests, boundary coverage, one assert per test.
+paths: '**/*.test.ts, **/*.test.tsx, **/*.spec.ts, **/*.spec.tsx, **/__tests__/**/*.ts, **/__tests__/**/*.tsx'
 ---
 
 # Clean Tests

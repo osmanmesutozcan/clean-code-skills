@@ -1,6 +1,7 @@
 ---
 name: clean-comments
 description: Use when writing, fixing, editing, or reviewing Python comments and docstrings. Enforces Clean Code principles—no metadata, no redundancy, no commented-out code.
+paths: '**/*.py'
 ---
 
 # Clean Comments

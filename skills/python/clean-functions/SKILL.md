@@ -1,6 +1,7 @@
 ---
 name: clean-functions
 description: Use when writing, fixing, editing, or refactoring Python functions. Enforces Clean Code principles—maximum 3 arguments, single responsibility, no flag parameters.
+paths: '**/*.py'
 ---
 
 # Clean Functions

@@ -1,6 +1,7 @@
 ---
 name: clean-names
 description: Use when naming, renaming, or fixing names of variables, functions, classes, interfaces, or modules in TypeScript. Enforces Clean Code principles—descriptive names, appropriate length, no encodings.
+paths: '**/*.ts, **/*.tsx'
 ---
 
 # Clean Names

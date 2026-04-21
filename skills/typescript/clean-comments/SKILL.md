@@ -1,6 +1,7 @@
 ---
 name: clean-comments
 description: Use when writing, fixing, editing, or reviewing TypeScript comments and TSDoc. Enforces Clean Code principles—no metadata, no redundancy, no commented-out code.
+paths: '**/*.ts, **/*.tsx'
 ---
 
 # Clean Comments

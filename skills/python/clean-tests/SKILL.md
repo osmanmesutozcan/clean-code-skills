@@ -1,6 +1,7 @@
 ---
 name: clean-tests
 description: Use when writing, fixing, editing, or refactoring Python tests. Enforces Clean Code principles—fast tests, boundary coverage, one assert per test.
+paths: '**/test_*.py, **/*_test.py, **/tests/**/*.py, **/conftest.py'
 ---
 
 # Clean Tests
