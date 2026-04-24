@@ -58,15 +58,15 @@ You don't have to make code perfect—just **a little bit better** with every to
 
 ## Installation
 
+```bash
+npx skills add osmanmesutozcan/clean-code-skills
+```
+
 Install only one language track per destination directory (`.agent/skills`, `.claude/skills`, `~/.claude/skills`, etc.).
 
 ### Google Antigravity
 
 **Project-specific** (applies to one project):
-
-```bash
-npx skills add osmanmesutozcan/clean-code-skills
-```
 
 ```bash
 # From your project root
