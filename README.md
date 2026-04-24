@@ -21,13 +21,6 @@ These skills encode battle-tested solutions to exactly these problems—directly
 
 | Track | Skill | Description | Rules |
 |-------|-------|-------------|-------|
-| Python | `boy-scout` | **Orchestrator**—always leave code cleaner than you found it | Coordinates all skills |
-| Python | `python-clean-code` | **Master skill** with all 66 rules | C1-C5, E1-E2, F1-F4, G1-G36, N1-N7, P1-P3, T1-T9 |
-| Python | `clean-comments` | Minimal, accurate commenting | C1-C5 |
-| Python | `clean-functions` | Small, focused, obvious functions | F1-F4 |
-| Python | `clean-general` | Core principles (DRY, single responsibility) | G5, G16, G23, G25, G30, G36 |
-| Python | `clean-names` | Descriptive, unambiguous naming | N1-N7 |
-| Python | `clean-tests` | Fast, thorough, boundary-aware tests | T1-T9 |
 | TypeScript | `boy-scout` | **Orchestrator**—always leave code cleaner than you found it | Coordinates all skills |
 | TypeScript | `typescript-clean-code` | **Master skill** with all 66 rules | C1-C5, E1-E2, F1-F4, G1-G36, N1-N7, TS1-TS3, T1-T9 |
 | TypeScript | `clean-comments` | Minimal, accurate commenting | C1-C5 |
@@ -72,6 +65,10 @@ Install only one language track per destination directory (`.agent/skills`, `.cl
 **Project-specific** (applies to one project):
 
 ```bash
+npx skills add osmanmesutozcan/clean-code-skills
+```
+
+```bash
 # From your project root
 mkdir -p .agent/skills
 # Python track
@@ -85,22 +82,12 @@ cp -r skills/typescript/* .agent/skills/
 
 ```bash
 mkdir -p ~/.gemini/antigravity/skills
-# Python track
-cp -r skills/python/* ~/.gemini/antigravity/skills/
 
 # TypeScript track
 cp -r skills/typescript/* ~/.gemini/antigravity/skills/
 ```
 
 **Quick install** (global, one command) — pick one track:
-
-```bash
-# Python track
-git clone https://github.com/ertugrul-dmr/clean-code-skills.git /tmp/clean-code-skills && \
-mkdir -p ~/.gemini/antigravity/skills && \
-cp -r /tmp/clean-code-skills/skills/python/* ~/.gemini/antigravity/skills/ && \
-rm -rf /tmp/clean-code-skills
-```
 
 ```bash
 # TypeScript track
@@ -117,8 +104,6 @@ rm -rf /tmp/clean-code-skills
 ```bash
 # From your project root
 mkdir -p .claude/skills
-# Python track
-cp -r skills/python/* .claude/skills/
 
 # TypeScript track
 cp -r skills/typescript/* .claude/skills/
@@ -128,22 +113,12 @@ cp -r skills/typescript/* .claude/skills/
 
 ```bash
 mkdir -p ~/.claude/skills
-# Python track
-cp -r skills/python/* ~/.claude/skills/
 
 # TypeScript track
 cp -r skills/typescript/* ~/.claude/skills/
 ```
 
 **Quick install** (global, one command) — pick one track:
-
-```bash
-# Python track
-git clone https://github.com/ertugrul-dmr/clean-code-skills.git /tmp/clean-code-skills && \
-mkdir -p ~/.claude/skills && \
-cp -r /tmp/clean-code-skills/skills/python/* ~/.claude/skills/ && \
-rm -rf /tmp/clean-code-skills
-```
 
 ```bash
 # TypeScript track
